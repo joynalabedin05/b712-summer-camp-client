@@ -36,8 +36,9 @@ const Footer = () => {
             <div>
                 <span className="footer-title">Art Degree</span>
                 <a className="link link-hover">Fashion Design School</a>
-                <a className="link link-hover">Photography Design School</a>
+                <a className="link link-hover">Photography School</a>
                 <a className="link link-hover">Interior Design School</a>
+                <a className="link link-hover">Architecture School</a>
             </div>
             <div>
                 <span className="footer-title">Legal</span>
