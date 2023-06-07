@@ -9,7 +9,7 @@ const Login = () => {
     }
     return (
         <div className="">
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 pb-10">
+            <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100 pb-10 mx-auto my-10">
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
                         <label className="label">
@@ -33,6 +33,8 @@ const Login = () => {
                     </div>
                 </form>
                 <p className='ml-9 font-bold'><small>Do not have any account?   <Link to='/signup'>Signup</Link> </small></p>
+                <div className="divider mx-8">OR</div>
+                <button className="btn btn-success mx-8 mt-4 ">GOOGLE SIGNIN</button>
 
             </div>
         </div>
