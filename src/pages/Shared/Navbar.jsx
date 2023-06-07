@@ -1,6 +1,12 @@
 
-
+import logo from '../../assets/logo2.jpg'
 const Navbar = () => {
+    const navItems = <>
+        <li><a>Home</a></li>
+        <li><a>Instructors</a></li>
+        <li><a>Classes</a></li>
+    </>
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -9,21 +15,25 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 3</a></li>
+                        {navItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-xl">
+                    <div className='flex'>
+                        <img className='w-12 rounded-full' src={logo} alt="" />
+                        <div className=''>
+                            <h3 className="text-3xl">ACADEMY OF ART UNIVERSITY</h3>
+                            <p className="uppercase text-sm">defy the ordinary , create the extra ordinary</p>
+                        </div>
+                    </div>
+                </a>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Item 1</a></li>
-                    <li><a>Item 3</a></li>
-                    <li><a>Item 3</a></li>
+                    {navItems}
                 </ul>
             </div>
-           
+
         </div>
     );
 };
