@@ -1,11 +1,38 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
+import SocialLogin from "./SocialLogin";
 
 
 const Login = () => {
+    const {signIn} = useContext(AuthContext);
+    // const location = useLocation();
+    // const navigate = useNavigate();
+
+    // const from = location.state?.from?.pathname || "/";
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         console.log(data);
+        signIn(data.email, data.password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            Swal.fire({
+                title: 'user login succefully',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
+            //   navigate(from, { replace: true });
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
     return (
         <div className="">
@@ -34,7 +61,8 @@ const Login = () => {
                 </form>
                 <p className='ml-9 font-bold'><small>Do not have any account?   <Link to='/signup'>Signup</Link> </small></p>
                 <div className="divider mx-8">OR</div>
-                <button className="btn btn-success mx-8 mt-4 ">GOOGLE SIGNIN</button>
+                {/* <button className="btn btn-success mx-8 mt-4 ">GOOGLE SIGNIN</button> */}
+                <SocialLogin></SocialLogin>
 
             </div>
         </div>

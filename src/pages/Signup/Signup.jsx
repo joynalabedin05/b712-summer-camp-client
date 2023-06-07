@@ -1,10 +1,59 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import SocialLogin from "../Login/SocialLogin";
 
 const Signup = () => {
+    // const navigate = useNavigate();
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         console.log(data);
+        // console.log(data);
+        createUser(data.email, data.password)
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser);
+                updateUserProfile(data.name, data.photoURL)
+                    .then((result) => {
+                        // const updatedUser  = result.user;
+                        console.log(result);
+                    //    const saveUser = {name: data.name, email: data.email}
+
+                    //     fetch('https://bistro-boss-server-nine-xi.vercel.app/users',{
+                    //         method:'POST',
+                    //         headers:{
+                    //             'content-type': 'application/json'
+                    //         },
+                    //         body: JSON.stringify(saveUser)
+
+                    //     })
+                    //         .then(res => res.json())
+                    //         .then(data => {
+                    //             if (data.insertedId) {
+                    //                 // reset();
+                    //                 Swal.fire({
+                    //                     position: 'top-end',
+                    //                     icon: 'success',
+                    //                     title: 'user profile updated',
+                    //                     showConfirmButton: false,
+                    //                     timer: 1500
+                    //                 });
+                    //                 navigate('/');
+                    //             }
+                    //         })
+
+                    // })
+                    // .catch(error => {
+                    //     console.log(error);
+
+
+                    })
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
     return (
         
@@ -63,7 +112,7 @@ const Signup = () => {
                 </form>
                 <p className='ml-9 font-bold'><small>Already have an account?   <Link to='/login'>LOGIN</Link> </small></p>
                 <div className="divider mx-8">OR</div>
-                <button className="btn btn-success mx-8 mt-4 ">GOOGLE SIGNIN</button>
+                <SocialLogin></SocialLogin>
 
             </div>
     );
