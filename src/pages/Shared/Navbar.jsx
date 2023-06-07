@@ -1,10 +1,12 @@
 
+import { Link } from 'react-router-dom';
 import logo from '../../assets/logo2.jpg'
 const Navbar = () => {
     const navItems = <>
-        <li><a>Home</a></li>
-        <li><a>Instructors</a></li>
-        <li><a>Classes</a></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/'>Instructors</Link></li>
+        <li><Link to='/'>Classes</Link></li>
+        <li><Link to='/'>Login</Link></li>
     </>
 
     return (
