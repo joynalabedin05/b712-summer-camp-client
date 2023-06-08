@@ -16,9 +16,9 @@ const Signup = () => {
                 const createdUser = result.user;
                 console.log(createdUser);
                 updateUserProfile(data.name, data.photoURL)
-                    .then((result) => {
+                    .then(() => {
                         // const updatedUser  = result.user;
-                        console.log(result);
+                        // PROFILE UPDATED
                     //    const saveUser = {name: data.name, email: data.email}
 
                     //     fetch('https://bistro-boss-server-nine-xi.vercel.app/users',{

@@ -1,5 +1,6 @@
 import PopularClass from "./PopularClass";
 import PopularInstructor from "./PopularInstructor";
+import Scolarship from "./Scolarship";
 import Slider from "./Slider";
 
 
@@ -9,7 +10,8 @@ const Home = () => {
         <div>
             <Slider></Slider> 
             <PopularClass></PopularClass>
-            <PopularInstructor></PopularInstructor>    
+            <PopularInstructor></PopularInstructor>
+            <Scolarship></Scolarship>    
         </div>
     );
 };
