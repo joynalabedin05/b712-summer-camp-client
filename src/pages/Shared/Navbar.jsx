@@ -18,6 +18,7 @@ const Navbar = () => {
         <li className='uppercase font-bold'><Link to='/'>Home</Link></li>
         <li className='uppercase font-bold'><Link to='/instructor'>Instructors</Link></li>
         <li className='uppercase font-bold'><Link to='/class'>Classes</Link></li>
+        {/* <li className='uppercase font-bold'><Link to='/dashboard'>Dashboard</Link></li> */}
         {
             user && <li className='uppercase font-bold'><Link to='/dashboard'>Dashboard</Link></li>
         }
