@@ -10,7 +10,7 @@ const PopularClasses = ({ item }) => {
                 <p>Class Name: {name}</p>
                 <p>Available Seats: {seats}</p>
                 <p>Price: {price}</p>
-                <button className="btn btn-success">Enroll Now</button>
+                <button className="btn btn-success w-9/12">Enroll Now</button>
             </div>
         </div>
     );

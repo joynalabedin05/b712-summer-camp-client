@@ -11,6 +11,9 @@ import ErrorPage from './pages/errorPage/ErrorPage';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import AuthProvider from './provider/AuthProvider';
+import AllClass from './pages/AllClass/AllClass';
+import InstructorPage from './pages/Instructor/InstructorPage';
+import DashBoard from './layouts/DashBoard';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +32,19 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <Signup></Signup>,
       },
+      {
+        path: "/class",
+        element: <AllClass></AllClass>,
+      },
+      {
+        path: "/instructor",
+        element: <InstructorPage></InstructorPage>,
+      },
     ]
+  },
+  {
+    path: "dashboard",
+    element: <DashBoard></DashBoard>,
   },
   {
     path: "*",

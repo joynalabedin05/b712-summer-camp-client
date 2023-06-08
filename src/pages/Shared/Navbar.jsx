@@ -16,8 +16,11 @@ const Navbar = () => {
 
     const navItems = <>
         <li className='uppercase font-bold'><Link to='/'>Home</Link></li>
-        <li className='uppercase font-bold'><Link to='/'>Instructors</Link></li>
-        <li className='uppercase font-bold'><Link to='/'>Classes</Link></li>
+        <li className='uppercase font-bold'><Link to='/instructor'>Instructors</Link></li>
+        <li className='uppercase font-bold'><Link to='/class'>Classes</Link></li>
+        {
+            user && <li className='uppercase font-bold'><Link to='/dashboard'>Dashboard</Link></li>
+        }
         
         {
             user ? <div className='flex '>
@@ -31,7 +34,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar bg-base-100  max-w-screen-xl z-10  mx-auto">
+        <div className="navbar bg-base-100  max-w-screen-xl my-5  mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -45,8 +48,8 @@ const Navbar = () => {
                     <div className='flex'>
                         <img className='w-12 rounded-full' src={logo} alt="" />
                         <div className=''>
-                            <h3 className="text-3xl">ACADEMY OF ART UNIVERSITY</h3>
-                            <p className="uppercase text-sm">defy the ordinary , create the extra ordinary</p>
+                            <h3 className="md:text-3xl">ACADEMY OF ART UNIVERSITY</h3>
+                            <p className="md:uppercase text-sm">Defy the ordinary , create the extra ordinary</p>
                         </div>
                     </div>
                 </a>
