@@ -36,7 +36,7 @@ const Navbar = () => {
 
         {
             user ? <div className='flex '>
-                <span ><img className='rounded w-12' src={user?.photoURL} alt="" /></span>
+                <span ><img className='rounded w-12 h-10 mr-2' src={user?.photoURL} alt="" /></span>
                 <button className="" onClick={handleLogout}>Logout</button>
             </div> :
                 <div>
