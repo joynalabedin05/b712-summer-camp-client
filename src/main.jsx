@@ -51,6 +51,14 @@ const router = createBrowserRouter([
         path: "allusers",
         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
       },
+      {
+        path: "manageclass",
+        element: <AdminRoute><ManageClass></ManageClass></AdminRoute>,
+      },
+      {
+        path: "mycart",
+        element: <MyClass></MyClass>,
+      },
     ]
   },
   {
@@ -65,6 +73,8 @@ import {
 } from 'react-query'
 import AllUsers from './pages/Dashboard/AllUsers';
 import AdminRoute from './routes/AdminRoute';
+import ManageClass from './pages/Dashboard/ManageClass';
+import MyClass from './pages/Dashboard/MyClass';
 
 const queryClient = new QueryClient()
 

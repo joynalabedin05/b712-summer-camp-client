@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/logo2.jpg'
 import { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
+import useCart from '../../hooks/useCart';
+import {FaShoppingCart } from 'react-icons/fa';
+
 const Navbar = () => {
+    const [cart] = useCart();
     const { user, logOut } = useContext(AuthContext);
     const handleLogout = () => {
         logOut()
@@ -15,21 +19,28 @@ const Navbar = () => {
 
 
     const navItems = <>
-        <li className='uppercase font-bold'><Link to='/'>Home</Link></li>
-        <li className='uppercase font-bold'><Link to='/instructor'>Instructors</Link></li>
-        <li className='uppercase font-bold'><Link to='/class'>Classes</Link></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/instructor'>Instructors</Link></li>
+        <li><Link to='/class'>Classes</Link></li>
         {/* <li className='uppercase font-bold'><Link to='/dashboard'>Dashboard</Link></li> */}
         {
-            user && <li className='uppercase font-bold'><Link to='/dashboard'>Dashboard</Link></li>
+            user && <li><Link to='/dashboard'>Dashboard</Link></li>
         }
-        
+
+        <li><Link to='/dashboard/mycart'>
+            <button className='flex gap-1'>
+                <FaShoppingCart />
+                <div className="badge badge-secondary">{cart?.length || 0}</div>
+            </button>
+        </Link></li>
+
         {
             user ? <div className='flex '>
-                <span className=' uppercase font-bold'><img className='rounded w-12' src={user?.photoURL} alt="" /></span>
-                <button  className="btn btn-ghost uppercase font-bold" onClick={handleLogout}>LOGOUT</button>
+                <span ><img className='rounded w-12' src={user?.photoURL} alt="" /></span>
+                <button className="" onClick={handleLogout}>Logout</button>
             </div> :
                 <div>
-                    <li className=' uppercase font-bold'><Link to='/login'>LOGIN</Link></li>
+                    <li ><Link to='/login'>Login</Link></li>
                 </div>
         }
     </>

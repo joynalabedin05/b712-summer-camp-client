@@ -1,18 +1,17 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaHome, FaBook, FaUser, FaUsers } from 'react-icons/fa';
+import { FaHome, FaBook, FaUser, FaUsers, FaShoppingCart } from 'react-icons/fa';
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
-import { useContext } from "react";
-import { AuthContext } from "../provider/AuthProvider";
+import useCart from "../hooks/useCart";
 
 const DashBoard = () => {
-  const { user } = useContext(AuthContext);
+  const [cart] = useCart();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   return (
     <div className="drawer lg:drawer-open my-10">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
+      <div className="drawer-content mx-6">
         {/* Page content here */}
         <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
         <Outlet></Outlet>
@@ -27,8 +26,10 @@ const DashBoard = () => {
                 <li>
                   <NavLink to='/dashboard/allusers'><FaUsers /> All Users</NavLink>
                 </li>
-                <li><a>Sidebar Item 1</a></li>
-                <li><a>Sidebar Item 2</a></li>
+                <li>
+                  <NavLink to='/dashboard/manageclass'><FaUsers /> Manage Classes</NavLink>
+                </li>
+
               </> :
               isInstructor ?
                 <>
@@ -38,7 +39,10 @@ const DashBoard = () => {
                 </> :
 
                 <>
-                  <li><a>Sidebar Item 5</a></li>
+                  <li>
+                    <NavLink to='/dashboard/mycart'><FaShoppingCart /> My Cart <span className="badge badge-secondary">{cart?.length || 0}</span></NavLink>
+
+                  </li>
                   <li><a>Sidebar Item 6</a></li>
                 </>
           }
