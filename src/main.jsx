@@ -60,6 +60,10 @@ const router = createBrowserRouter([
         element: <MyClass></MyClass>,
       },
       {
+        path: "payment",
+        element: <Payment></Payment>,
+      },
+      {
         path: "addclass",
         element: <AddAClass></AddAClass>,
       },
@@ -80,6 +84,7 @@ import AdminRoute from './routes/AdminRoute';
 import ManageClass from './pages/Dashboard/ManageClass';
 import MyClass from './pages/Dashboard/MyClass';
 import AddAClass from './pages/Dashboard/AddAClass';
+import Payment from './pages/Dashboard/Payment';
 
 const queryClient = new QueryClient()
 
