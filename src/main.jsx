@@ -44,11 +44,12 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "dashboard",
+    path: "/dashboard",
     element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
     children:[
       {
-
+        path: "allusers",
+        element: <AllUsers></AllUsers>,
       },
     ]
   },
@@ -62,6 +63,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query'
+import AllUsers from './pages/Dashboard/AllUsers';
 
 const queryClient = new QueryClient()
 

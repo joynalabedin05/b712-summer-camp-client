@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import SocialLogin from "../Login/SocialLogin";
+import Swal from "sweetalert2";
 
 const Signup = () => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
@@ -17,36 +18,36 @@ const Signup = () => {
                 console.log(createdUser);
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        // const updatedUser  = result.user;
+                        
                         // PROFILE UPDATED
-                    //    const saveUser = {name: data.name, email: data.email}
+                       const saveUser = {name: data.name, email: data.email}
 
-                    //     fetch('https://bistro-boss-server-nine-xi.vercel.app/users',{
-                    //         method:'POST',
-                    //         headers:{
-                    //             'content-type': 'application/json'
-                    //         },
-                    //         body: JSON.stringify(saveUser)
+                        fetch('http://localhost:5000/users',{
+                            method:'POST',
+                            headers:{
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
 
-                    //     })
-                    //         .then(res => res.json())
-                    //         .then(data => {
-                    //             if (data.insertedId) {
-                    //                 // reset();
-                    //                 Swal.fire({
-                    //                     position: 'top-end',
-                    //                     icon: 'success',
-                    //                     title: 'user profile updated',
-                    //                     showConfirmButton: false,
-                    //                     timer: 1500
-                    //                 });
-                    //                 navigate('/');
-                    //             }
-                    //         })
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    // reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'user profile updated',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
 
-                    // })
-                    // .catch(error => {
-                    //     console.log(error);
+                    })
+                    .catch(error => {
+                        console.log(error);
 
 
                     })

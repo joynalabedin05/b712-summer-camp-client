@@ -16,20 +16,20 @@ const SocialLogin = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                //     const saveUser = { name: loggedUser.displayName, email: loggedUser.email }
-                //     fetch('https://bistro-boss-server-nine-xi.vercel.app/users', {
-                //         method: 'POST',
-                //         headers: {
-                //             'content-type': 'application/json'
-                //         },
-                //         body: JSON.stringify(saveUser)
+                    const saveUser = { name: loggedUser.displayName, email: loggedUser.email }
+                    fetch('http://localhost:5000/users', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(saveUser)
 
-                //     })
-                //         .then(res => res.json())
-                //         .then(() => {
+                    })
+                        .then(res => res.json())
+                        .then(() => {
 
                             
-                 // })
+                 })
                  navigate(from, { replace: true });
             })
             .catch(error => {
