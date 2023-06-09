@@ -34,7 +34,9 @@ const DashBoard = () => {
               isInstructor ?
                 <>
 
-                  <li><a>Sidebar Item 3</a></li>
+                  <li>
+                    <NavLink to='/dashboard/addclass'><FaUsers /> Add A Class</NavLink>
+                  </li>
                   <li><a>Sidebar Item 4</a></li>
                 </> :
 

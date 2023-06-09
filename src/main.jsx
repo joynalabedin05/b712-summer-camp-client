@@ -59,6 +59,10 @@ const router = createBrowserRouter([
         path: "mycart",
         element: <MyClass></MyClass>,
       },
+      {
+        path: "addclass",
+        element: <AddAClass></AddAClass>,
+      },
     ]
   },
   {
@@ -75,6 +79,7 @@ import AllUsers from './pages/Dashboard/AllUsers';
 import AdminRoute from './routes/AdminRoute';
 import ManageClass from './pages/Dashboard/ManageClass';
 import MyClass from './pages/Dashboard/MyClass';
+import AddAClass from './pages/Dashboard/AddAClass';
 
 const queryClient = new QueryClient()
 
