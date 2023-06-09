@@ -49,7 +49,7 @@ const router = createBrowserRouter([
     children:[
       {
         path: "allusers",
-        element: <AllUsers></AllUsers>,
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
       },
     ]
   },
@@ -64,6 +64,7 @@ import {
   QueryClientProvider,
 } from 'react-query'
 import AllUsers from './pages/Dashboard/AllUsers';
+import AdminRoute from './routes/AdminRoute';
 
 const queryClient = new QueryClient()
 
