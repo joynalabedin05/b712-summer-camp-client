@@ -9,14 +9,14 @@ const DashBoard = () => {
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   return (
-    <div className="drawer lg:drawer-open my-10">
+    <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content mx-6">
+      <div className="drawer-content mx-6 mt-5">
         {/* Page content here */}
         <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
         <Outlet></Outlet>
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side py-5">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-orange-100">
           {/* Sidebar content here */}
@@ -37,7 +37,9 @@ const DashBoard = () => {
                   <li>
                     <NavLink to='/dashboard/addclass'><FaUsers /> Add A Class</NavLink>
                   </li>
-                  <li><a>Sidebar Item 4</a></li>
+                  <li>
+                    <NavLink to='/dashboard/instructorclass'><FaBook /> Approved Class</NavLink>
+                  </li>
                 </> :
 
                 <>
