@@ -3,9 +3,13 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import Swal from "sweetalert2";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 
 const PopularClasses = ({ item }) => {
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
     const {user}= useContext(AuthContext);
     const [,refetch] = useCart();
     const location = useLocation();
@@ -14,7 +18,7 @@ const PopularClasses = ({ item }) => {
     const { image,_id, name, instructor, seats, price } = item;
     // console.log(item);
     const handleAddToCart = (item)=>{
-        console.log(item);
+        console.log(item.seats);
         if(user && user.email){
             const cartItem = {menuItemId:_id,displayName: user?.displayName, name, image, price,instructor, email: user.email};
             console.log(cartItem);
@@ -57,14 +61,14 @@ const PopularClasses = ({ item }) => {
 
     }
     return (
-        <div className="card card-side bg-base-100 shadow-xl p-5">
+        <div className={`card card-side bg-base-100 shadow-xl p-5 ${seats<1? 'bg-red-400' : ''}`}>
             <figure><img className="md:w-[350px] md:h-[300px] p-5" src={image} alt="Movie" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{instructor}</h2>
                 <p>Class Name: {name}</p>
                 <p>Available Seats: {seats}</p>
                 <p>Price: {price}</p>
-                <button onClick={()=>handleAddToCart(item)} className="btn btn-success w-9/12">Enroll Now</button>
+                <button onClick={()=>handleAddToCart(item)} className={`btn btn-success w-9/12 ${isAdmin ? 'hidden':isInstructor ? 'hidden':seats<1 ? 'hidden': 'block'}`}>Enroll Now</button>
             </div>
         </div>
     );

@@ -3,9 +3,11 @@ import { FaTrashAlt, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../hooks/UseAxiosSecure";
 import { useQuery } from "react-query";
+
 // import { useState } from "react";
 
 const AllUsers = () => {
+    
     const [axiosSecure]= UseAxiosSecure();
     // const [disabled, setDisabled] = useState(false);
     const { data: users = [], refetch } = useQuery(['users'], async () => {
