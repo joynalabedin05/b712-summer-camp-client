@@ -9,7 +9,6 @@ import { useQuery } from "react-query";
 const AllUsers = () => {
     
     const [axiosSecure]= UseAxiosSecure();
-    // const [disabled, setDisabled] = useState(false);
     const { data: users = [], refetch } = useQuery(['users'], async () => {
         const res = await axiosSecure.get('/users')
         return res.data;
@@ -85,13 +84,13 @@ const AllUsers = () => {
                                 <td>{user.email}</td>
                                 <td>{
                                         user.role=='admin'? 'admin': 
-                                        <button onClick={()=>handleMakeAdmin(user)} className="btn  btn-ghost bg-orange-600 text-white"> <FaUserShield></FaUserShield></button>                                   
+                                        <button onClick={()=>handleMakeAdmin(user)} className={` ${user.role=='instructor'? 'hidden': ''} btn  btn-ghost bg-orange-600 text-white`}> <FaUserShield></FaUserShield></button>                                   
                                     }
                                 </td>
 
                                 <td>{
                                         user.role=='instructor'? 'instructor': 
-                                        <button onClick={()=>handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600 text-white"> <FaUserShield></FaUserShield></button>                                   
+                                        <button onClick={()=>handleMakeInstructor(user)} className={` ${user.role=='admin'? 'hidden': ''} btn btn-ghost bg-orange-600 text-white`}> <FaUserShield></FaUserShield></button>                                   
                                     }
                                 </td>
                                 <td>

@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaHome, FaBook, FaUser, FaUsers, FaShoppingCart } from 'react-icons/fa';
+import { FaHome, FaBook,FaSchool,FaCartPlus,FaCalendarWeek, FaUser, FaUsers, FaShoppingCart } from 'react-icons/fa';
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 import useCart from "../hooks/useCart";
@@ -27,7 +27,7 @@ const DashBoard = () => {
                   <NavLink to='/dashboard/allusers'><FaUsers /> All Users</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/dashboard/manageclass'><FaUsers /> Manage Classes</NavLink>
+                  <NavLink to='/dashboard/manageclass'><FaCalendarWeek /> Manage Classes</NavLink>
                 </li>
 
               </> :
@@ -35,10 +35,10 @@ const DashBoard = () => {
                 <>
 
                   <li>
-                    <NavLink to='/dashboard/addclass'><FaUsers /> Add A Class</NavLink>
+                    <NavLink to='/dashboard/addclass'><FaSchool /> Add A Class</NavLink>
                   </li>
                   <li>
-                    <NavLink to='/dashboard/instructorclass'><FaBook /> Approved Class</NavLink>
+                    <NavLink to='/dashboard/instructorclass'><FaCartPlus /> Approved Class</NavLink>
                   </li>
                 </> :
 

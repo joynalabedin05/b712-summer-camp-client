@@ -3,16 +3,17 @@ import Instructors from "../Home/Instructors";
 
 
 const InstructorPage = () => {
+    
     const [instructor, setInstructor] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/instructor')
+        fetch('http://localhost:5000/allinstructor')
         .then(res=>res.json())
         .then(data=>setInstructor(data))
     },[]);
     return (
         <div className="my-10">
         <h4 className="my-5 text-4xl">Popular Instructor</h4>
-         <div className="grid md:grid-cols-3 ">
+         <div className="grid md:grid-cols-3 gap-5">
           {
             instructor.map(item=><Instructors item={item} key={item._id}></Instructors>)
           }

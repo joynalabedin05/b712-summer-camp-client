@@ -12,9 +12,9 @@ const PopularInstructor = () => {
     return (
        <div className="my-10">
         <h4 className="my-5 text-4xl">Popular Instructor</h4>
-         <div className="grid md:grid-cols-3">
+         <div className="grid md:grid-cols-3 gap-8">
           {
-            instructor.map(item=><Instructors item={item} key={item._id}></Instructors>)
+            instructor.slice(0,6).map(item=><Instructors item={item} key={item._id}></Instructors>)
           }
        </div>
        </div>

@@ -57,8 +57,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">
-                    <div className='flex'>
-                        <img className='w-12 rounded-full' src={logo} alt="" />
+                    <div className='md:flex'>
+                        <img className='w-12 rounded-lg' src={logo} alt="" />
                         <div className=''>
                             <h3 className="md:text-3xl">ACADEMY OF ART UNIVERSITY</h3>
                             <p className="md:uppercase text-sm">Defy the ordinary , create the extra ordinary</p>

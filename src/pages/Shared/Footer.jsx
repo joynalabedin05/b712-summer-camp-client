@@ -3,7 +3,7 @@ import logo from '../../assets/logo2.jpg'
 const Footer = () => {
     return (
         <footer className="footer p-16 rounded-lg text-white bg-slate-600">
-            <div className='flex'>
+            <div className='md:flex'>
                 <img className='w-12 rounded-full' src={logo} alt="" />
                 <div className=''>
                     <h3 className="text-3xl">ACADEMY OF ART UNIVERSITY</h3>

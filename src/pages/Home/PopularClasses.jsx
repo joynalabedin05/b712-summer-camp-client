@@ -68,7 +68,7 @@ const PopularClasses = ({ item }) => {
                 <p>Class Name: {name}</p>
                 <p>Available Seats: {seats}</p>
                 <p>Price: {price}</p>
-                <button onClick={()=>handleAddToCart(item)} className={`btn btn-success w-9/12 ${isAdmin ? 'hidden':isInstructor ? 'hidden':seats<1 ? 'hidden': 'block'}`}>Enroll Now</button>
+                <button onClick={()=>handleAddToCart(item)} className={`bg-slate-500 capitalize md:w-1/2 ${isAdmin ? 'hidden':isInstructor ? 'hidden':seats<1 ? 'hidden': 'block'}`}>Enroll Now</button>
             </div>
         </div>
     );
