@@ -13,7 +13,7 @@ const ManageClass = () => {
     });
 
     const handleMakeApprove = (item) => {
-        fetch(`http://localhost:5000/classes/approve/${item._id}`, {
+        fetch(`https://summer-camp-server-taupe-psi.vercel.app/classes/approve/${item._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const ManageClass = () => {
         }
 
         const handleMakeDeny = (item) => {
-            fetch(`http://localhost:5000/classes/deny/${item._id}`, {
+            fetch(`https://summer-camp-server-taupe-psi.vercel.app/classes/deny/${item._id}`, {
                 method: 'PATCH'
             })
                 .then(res => res.json())
@@ -52,7 +52,7 @@ const ManageClass = () => {
                 })
             }
         const handleMakeFeedback = (item) => {
-            fetch(`http://localhost:5000/classes/feedback/${item._id}`, {
+            fetch(`https://summer-camp-server-taupe-psi.vercel.app/classes/feedback/${item._id}`, {
                 method: 'PATCH'
             })
                 .then(res => res.json())
@@ -109,20 +109,20 @@ const ManageClass = () => {
                                 <td>
                                  {
                                         item.status == 'approve' ? 'approved' :
-                                            <button onClick={() => handleMakeApprove(item)} className={`${item.status == 'deny'? 'hidden': ''} btn  btn-ghost bg-slate-600 text-white`}> <FaUserShield></FaUserShield></button>
+                                            <button onClick={() => handleMakeApprove(item)} className={`${item.status == 'deny'? 'opacity-50 pointer-events-none': ''} btn  btn-ghost bg-slate-600 text-white`}> <FaUserShield></FaUserShield></button>
                                     }
                                 </td>
 
                                 <td>
                                     {
                                         item.status == 'deny' ? 'denied' :
-                                            <button onClick={() => handleMakeDeny(item)} className={`${item.status=='approve'? 'hidden': ''}  btn  btn-ghost bg-slate-600 text-white`}><FaTrashAlt></FaTrashAlt> </button>
+                                            <button onClick={() => handleMakeDeny(item)} className={`${item.status=='approve'? 'opacity-50 pointer-events-none': ''}  btn  btn-ghost bg-slate-600 text-white`}><FaTrashAlt></FaTrashAlt> </button>
                                     }                            
                                 </td>                           
                                 <td>
                                     {
                                         item.status == 'feedback' ? 'your class was denied due to lack of student' :
-                                            <button onClick={() => handleMakeFeedback(item)} className={` ${item.status=='approve'? 'hidden': ''} btn  btn-ghost bg-slate-600 text-white`}>feedback </button>
+                                            <button onClick={() => handleMakeFeedback(item)} className={` ${item.status=='approve'? 'opacity-50 pointer-events-none': ''} btn  btn-ghost bg-slate-600 text-white`}>feedback </button>
                                     }                            
                                 </td>                           
                             </tr>)

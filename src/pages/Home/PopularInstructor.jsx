@@ -5,7 +5,7 @@ import Instructors from "./Instructors";
 const PopularInstructor = () => {
     const [instructor, setInstructor] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/instructor')
+        fetch('https://summer-camp-server-taupe-psi.vercel.app/instructor')
         .then(res=>res.json())
         .then(data=>setInstructor(data))
     },[])

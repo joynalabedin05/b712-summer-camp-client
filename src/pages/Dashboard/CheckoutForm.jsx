@@ -15,7 +15,8 @@ const CheckoutForm = ({cart, price}) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
 
-
+    
+  
     useEffect(() => {
         if(price> 0){
           axiosSecure.post('/create-payment-intent', { price })
@@ -78,6 +79,7 @@ const CheckoutForm = ({cart, price}) => {
             date: new Date(),
             status: 'service pending',
             quantity: cart.length,
+           
             cartItems: cart.map(item=> item._id),
             menuItems: cart.map(item=> item.menuItemId),
             itemsNames: cart.map(item=> item.name),

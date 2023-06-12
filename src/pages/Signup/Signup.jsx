@@ -22,7 +22,7 @@ const Signup = () => {
                         // PROFILE UPDATED
                        const saveUser = {name: data.name, email: data.email,image: data.photoURL}
 
-                        fetch('http://localhost:5000/users',{
+                        fetch('https://summer-camp-server-taupe-psi.vercel.app/users',{
                             method:'POST',
                             headers:{
                                 'content-type': 'application/json'

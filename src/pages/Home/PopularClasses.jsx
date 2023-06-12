@@ -17,12 +17,12 @@ const PopularClasses = ({ item }) => {
 
     const { image,_id, name, instructor, seats, price } = item;
     // console.log(item);
-    const handleAddToCart = (item)=>{
+    const handleAddToCart = ({item})=>{
         console.log(item.seats);
         if(user && user.email){
-            const cartItem = {menuItemId:_id,displayName: user?.displayName, name, image, price,instructor, email: user.email};
+            const cartItem = {menuItemId:_id, seats:item.seats,displayName: user?.displayName, name, image, price,instructor, email: user.email};
             console.log(cartItem);
-                fetch('http://localhost:5000/carts',{
+                fetch('https://summer-camp-server-taupe-psi.vercel.app/carts',{
                     method: 'POST',
                     headers:{
                         'content-type': 'application/json'

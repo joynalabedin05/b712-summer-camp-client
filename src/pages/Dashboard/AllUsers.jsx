@@ -15,7 +15,7 @@ const AllUsers = () => {
     });
 
     const handleMakeAdmin=(user)=>{
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://summer-camp-server-taupe-psi.vercel.app/users/admin/${user._id}`, {
            method:'PATCH'         
         })
         .then(res=>res.json())
@@ -35,7 +35,7 @@ const AllUsers = () => {
     }
 
    const  handleMakeInstructor =(user)=>{
-    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+    fetch(`https://summer-camp-server-taupe-psi.vercel.app/users/instructor/${user._id}`, {
         method:'PATCH'         
      })
      .then(res=>res.json())
@@ -84,13 +84,13 @@ const AllUsers = () => {
                                 <td>{user.email}</td>
                                 <td>{
                                         user.role=='admin'? 'admin': 
-                                        <button onClick={()=>handleMakeAdmin(user)} className={` ${user.role=='instructor'? 'hidden': ''} btn  btn-ghost bg-orange-600 text-white`}> <FaUserShield></FaUserShield></button>                                   
+                                        <button onClick={()=>handleMakeAdmin(user)} className={` ${user.role=='instructor'? 'opacity-50 pointer-events-none': ''} btn  btn-ghost bg-orange-600 text-white`}> <FaUserShield></FaUserShield></button>                                   
                                     }
                                 </td>
 
                                 <td>{
                                         user.role=='instructor'? 'instructor': 
-                                        <button onClick={()=>handleMakeInstructor(user)} className={` ${user.role=='admin'? 'hidden': ''} btn btn-ghost bg-orange-600 text-white`}> <FaUserShield></FaUserShield></button>                                   
+                                        <button onClick={()=>handleMakeInstructor(user)} className={` ${user.role=='admin'? 'opacity-50 pointer-events-none': ''} btn btn-ghost bg-orange-600 text-white`}> <FaUserShield></FaUserShield></button>                                   
                                     }
                                 </td>
                                 <td>

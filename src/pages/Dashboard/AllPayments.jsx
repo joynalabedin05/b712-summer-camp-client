@@ -10,6 +10,7 @@ const AllPayments = () => {
     // const [disabled, setDisabled] = useState(false);
     const { data: users = [], } = useQuery(['payments', user?.email], async () => {
         const res = await axiosSecure.get(`/payments/${user.email}`)
+        console.log(res.data);
         return res.data;
     });
 
